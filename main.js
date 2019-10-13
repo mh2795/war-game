@@ -52,23 +52,43 @@ class Deck {
         }
     }
 
-    draw() {
-        return this.cards[Math.floor(Math.random()*52)]
+    play() {
+        if (player1.cards[0].score > player2.cards[0].score) {
+            player1.cards.push(player2.cards[0])
+            player1.cards.push(player1.cards[0])
+            player2.cards.shift()
+            player1.cards.shift()
+            console.log('Player 1 wins round!')
+
+        }
+        else if (player1.cards[0].score < player2.cards[0].score) {
+            player2.cards.push(player1.cards[0])
+            player2.cards.push(player2.cards[0])
+            player2.cards.shift()
+            player1.cards.shift()
+            console.log('Player 2 wins round!')
+        }
+        else if (player1.cards[0].score === player2.cards[0].score) {
+            spoilsOfWar.cards.push(player1.cards[0], player1.cards[1], player1.cards[2], player1.cards[3])
+            spoilsOfWar.cards.push(player2.cards[0], player2.cards[1], player2.cards[2], player2.cards[3])
+            player2.cards.splice(0, 4)
+            player1.cards.splice(0, 4)
+            console.log('War!')
+        }
     }
 }
 
 const deck = new Deck ()
 deck.createDeck()
-deck.draw()
 console.log(deck) //Used to test that a deck of cards has indeed been created.//
 
-class Player {
+class Pile {
     constructor(cards) {
-        this.legth = 26
         this.cards = []
     }
 }
 
-const player1 = new Player
-const player2 = new Player
+const player1 = new Pile
+const player2 = new Pile
+const spoilsOfWar = new Pile
 
