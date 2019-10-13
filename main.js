@@ -74,6 +74,37 @@ class Deck {
             player2.cards.splice(0, 4)
             player1.cards.splice(0, 4)
             console.log('War!')
+            this.playWar()
+        }
+    }
+
+    playWar() {
+        if (player1.cards[0].score > player2.cards[0].score) {
+            player1.cards.push(player2.cards[0])
+            player1.cards.push(player1.cards[0])
+            player1.cards.push(...spoilsOfWar.cards)
+            player2.cards.shift()
+            player1.cards.shift()
+            spoilsOfWar = []
+            console.log('Player 1 wins the war!')
+
+        }
+        else if (player1.cards[0].score < player2.cards[0].score) {
+            player2.cards.push(player1.cards[0])
+            player2.cards.push(player2.cards[0])
+            player2.cards.push(...spoilsOfWar.cards)
+            player2.cards.shift()
+            player1.cards.shift()
+            spoilsOfWar.cards = []
+            console.log('Player 2 wins the war!')
+        }
+        else if (player1.cards[0].score === player2.cards[0].score) {
+            spoilsOfWar.cards.push(player1.cards[0], player1.cards[1], player1.cards[2], player1.cards[3])
+            spoilsOfWar.cards.push(player2.cards[0], player2.cards[1], player2.cards[2], player2.cards[3])
+            player2.cards.splice(0, 4)
+            player1.cards.splice(0, 4)
+            console.log('War continues!')
+            this.playWar()
         }
     }
 }
