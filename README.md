@@ -46,10 +46,10 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is not licensed but please don't steal my work without giving me credit :eyes:
+This project is not licensed but please don't steal my work without giving me credit &nbsp;  :eyes:
 
 ## Acknowledgments
 
 * Credits to Fisher-Yates for the algorithm utilized in this project to shuffle the deck prior to dealing
 * Inspired by the original War card game 
-* Rules of the Game sources from [Bicycle Cards](https://bicyclecards.com/how-to-play/war/)
+* Rules of the Game sourced from [Bicycle Cards](https://bicyclecards.com/how-to-play/war/)
