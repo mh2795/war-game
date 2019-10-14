@@ -51,4 +51,5 @@ This project is not licensed but please don't steal my work without giving me cr
 ## Acknowledgments
 
 * Credits to Fisher-Yates for the algorithm utilized in this project to shuffle the deck prior to dealing
-* Inspired by the original War card game
+* Inspired by the original War card game 
+* Rules of the Game sources from [Bicycle Cards](https://bicyclecards.com/how-to-play/war/)
