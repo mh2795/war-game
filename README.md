@@ -46,7 +46,7 @@ See also the list of [contributors](https://github.com/your/project/contributors
 
 ## License
 
-This project is not licensed but please don't steal my work without giving me credit U+1F642    &#128578
+This project is not licensed but please don't steal my work without giving me credit :eyes:
 
 ## Acknowledgments
 
