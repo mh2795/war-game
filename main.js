@@ -59,6 +59,11 @@ class Deck {
             player2.cards.shift()
             player1.cards.shift()
             console.log('Player 1 wins round!')
+            if (player2.cards.length === 0) {
+                console.log('Player 1 Wins!!')
+            } else {
+                this.play()
+            }
 
         }
         else if (player1.cards[0].score < player2.cards[0].score) {
@@ -67,14 +72,25 @@ class Deck {
             player2.cards.shift()
             player1.cards.shift()
             console.log('Player 2 wins round!')
+            if (player1.cards.length === 0) {
+                console.log('Player 2 Wins!!')
+            } else {
+                this.play()
+            }
         }
         else if (player1.cards[0].score === player2.cards[0].score) {
-            spoilsOfWar.cards.push(player1.cards[0], player1.cards[1], player1.cards[2], player1.cards[3])
-            spoilsOfWar.cards.push(player2.cards[0], player2.cards[1], player2.cards[2], player2.cards[3])
-            player2.cards.splice(0, 4)
-            player1.cards.splice(0, 4)
-            console.log('War!')
-            this.playWar()
+            if (player2.cards.length <= 4) {
+                console.log('Player 1 Wins!!')
+            } else if (player1.cards.length <= 4) {
+                console.log('Player 2 Wins!!')
+            } else {
+                spoilsOfWar.cards.push(player1.cards[0], player1.cards[1], player1.cards[2], player1.cards[3])
+                spoilsOfWar.cards.push(player2.cards[0], player2.cards[1], player2.cards[2], player2.cards[3])
+                player2.cards.splice(0, 4)
+                player1.cards.splice(0, 4)
+                console.log('War!')
+                this.playWar()
+            }
         }
     }
 
@@ -85,8 +101,13 @@ class Deck {
             player1.cards.push(...spoilsOfWar.cards)
             player2.cards.shift()
             player1.cards.shift()
-            spoilsOfWar = []
+            spoilsOfWar.cards = []
             console.log('Player 1 wins the war!')
+            if (player2.cards.length === 0) {
+                console.log('Player 1 Wins!!')
+            } else {
+                this.play()
+            }
 
         }
         else if (player1.cards[0].score < player2.cards[0].score) {
@@ -97,6 +118,11 @@ class Deck {
             player1.cards.shift()
             spoilsOfWar.cards = []
             console.log('Player 2 wins the war!')
+            if (player1.cards.length === 0) {
+                console.log('Player 2 Wins!!')
+            } else {
+                this.play()
+            }
         }
         else if (player1.cards[0].score === player2.cards[0].score) {
             spoilsOfWar.cards.push(player1.cards[0], player1.cards[1], player1.cards[2], player1.cards[3])
@@ -104,14 +130,19 @@ class Deck {
             player2.cards.splice(0, 4)
             player1.cards.splice(0, 4)
             console.log('War continues!')
-            this.playWar()
+            if (player2.cards.length <= 4) {
+                console.log('Player 1 Wins!!')
+            } else if (player1.cards.length <= 4) {
+                console.log('Player 2 Wins!!')
+            } else {
+                this.playWar()
+            }
         }
     }
 }
 
 const deck = new Deck ()
-deck.createDeck()
-console.log(deck) //Used to test that a deck of cards has indeed been created.//
+
 
 class Pile {
     constructor(cards) {
@@ -123,3 +154,9 @@ const player1 = new Pile
 const player2 = new Pile
 const spoilsOfWar = new Pile
 
+deck.createDeck()
+deck.shuffle()
+deck.dealCards()
+// console.log(deck) //Used to test that a deck of cards has indeed been created.//
+// console.log(player1) //Used to test that a deck of cards has indeed been created.//
+// console.log(player2) //Used to test that a deck of cards has indeed been created.//
